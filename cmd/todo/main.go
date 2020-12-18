@@ -5,11 +5,15 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/elemes1/gobridge_2/todo"
+	"github.com/elemes1/gobridge_2/api"
+	"github.com/elemes1/gobridge_2/store/localdb"
 )
 
 func main() {
-	r := todo.NewRouter()
+	store := localdb.NewTodoStore()
+	r := api.NewRouter(api.Resources{
+		Storage: store,
+	})
 
 	srv := &http.Server{
 		Handler:      r,
