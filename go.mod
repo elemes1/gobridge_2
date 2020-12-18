@@ -1,4 +1,4 @@
-module github.com/swtch1/gobridge_2
+module github.com/elemes1/gobridge_2
 
 go 1.15
 
